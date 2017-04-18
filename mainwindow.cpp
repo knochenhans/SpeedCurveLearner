@@ -34,28 +34,28 @@ void MainWindow::createActions()
 {
 	// Play
 
-	playAction = new QAction(QIcon("../miditest/Icons/start.png"), tr("&Abspielen"), this);
+    playAction = new QAction(QIcon("../SpeedCurveLearner/Icons/start.png"), tr("&Abspielen"), this);
 	//playAction->setShortcuts(QKeySequence::New);
 	playAction->setStatusTip(tr("Spielt die aktuelle Übung ab."));
 	connect(playAction, SIGNAL(triggered()), this, SLOT(exercisePlay()));
 
-	pauseAction = new QAction(QIcon("../miditest/Icons/pause.png"), tr("&Pause"), this);
+    pauseAction = new QAction(QIcon("../SpeedCurveLearner/Icons/pause.png"), tr("&Pause"), this);
 	//pauseAction->setShortcuts(QKeySequence::New);
 	pauseAction->setStatusTip(tr("Pausiert die aktuelle Übung."));
 	connect(pauseAction, SIGNAL(triggered()), this, SLOT(exercisePause()));
 
-	stopAction = new QAction(QIcon("../miditest/Icons/stop.png"), tr("&Stop"), this);
+    stopAction = new QAction(QIcon("../SpeedCurveLearner/Icons/stop.png"), tr("&Stop"), this);
 	//pauseAction->setShortcuts(QKeySequence::New);
 	stopAction->setStatusTip(tr("Stoppt die aktuelle Übung."));
 	connect(stopAction, SIGNAL(triggered()), this, SLOT(exerciseStop()));
 
 	// relative vs. absolute Pfade überarbeiten
-	forwardAction = new QAction(QIcon("J:/Programmierung/Qt/miditest/Icons/forward.png"), tr("&Stufe überspringen"), this);
+    forwardAction = new QAction(QIcon("../SpeedCurveLearner/Icons/forward.png"), tr("&Stufe überspringen"), this);
 	//pauseAction->setShortcuts(QKeySequence::New);
 	forwardAction->setStatusTip(tr("Überspringt die aktuelle Geschwindigkeitsstufe."));
 	connect(forwardAction, SIGNAL(triggered()), this, SLOT(exerciseForward()));
 
-	loopAction = new QAction(QIcon("../miditest/Icons/loop_deactivated.png"), tr("&Wiederholen"), this);
+    loopAction = new QAction(QIcon("../SpeedCurveLearner/Icons/loop_deactivated.png"), tr("&Wiederholen"), this);
 	//pauseAction->setShortcuts(QKeySequence::New);
 	loopAction->setStatusTip(tr("Wiederholt die aktuelle Übung kontinuierlich."));
 	connect(loopAction, SIGNAL(triggered()), this, SLOT(exerciseLoop()));
@@ -64,7 +64,7 @@ void MainWindow::createActions()
 	stopAction->setDisabled(true);
 	forwardAction->setDisabled(true);
 
-	settingsAction = new QAction(QIcon("../miditest/Icons/preferences.png"), tr("&Einstellungen"), this);
+    settingsAction = new QAction(QIcon("../SpeedCurveLearner/Icons/preferences.png"), tr("&Einstellungen"), this);
 	settingsAction->setStatusTip(tr("Einstellungen des Programms."));
     connect(settingsAction, SIGNAL(triggered()), this, SLOT(settings()));
 
@@ -80,22 +80,22 @@ void MainWindow::createActions()
 
 	connect(stopPlaying, SIGNAL(activated()), this, SLOT(exerciseStop()));
 
-	exercisePageAction = new QAction(QIcon("../miditest/Icons/exercise.png"), tr("&Übungen"), this);
+    exercisePageAction = new QAction(QIcon("../SpeedCurveLearner/Icons/exercise.png"), tr("&Übungen"), this);
 	exercisePageAction->setStatusTip(tr("Übungen"));
 	connect(exercisePageAction, SIGNAL(triggered()), this, SLOT(exercisePageClicked()));
 	connect(exercisePageShortcut, SIGNAL(activated()), this, SLOT(exercisePageClicked()));
 
-	designerPageAction = new QAction(QIcon("../miditest/Icons/designer.png"), tr("&Designer"), this);
+    designerPageAction = new QAction(QIcon("../SpeedCurveLearner/Icons/designer.png"), tr("&Designer"), this);
 	designerPageAction->setStatusTip(tr("Designer"));
 	connect(designerPageAction, SIGNAL(triggered()), this, SLOT(designerPageClicked()));
 	connect(designerPageShortcut, SIGNAL(activated()), this, SLOT(designerPageClicked()));
 
 	// Designer
 
-	loadDesignerAction = new QAction(QIcon("../miditest/Icons/open.png"), tr("&Übung laden"), this);
+    loadDesignerAction = new QAction(QIcon("../SpeedCurveLearner/Icons/open.png"), tr("&Übung laden"), this);
 	loadDesignerAction->setStatusTip(tr("&Übung laden"));
 
-	saveDesignerAction = new QAction(QIcon("../miditest/Icons/save.png"), tr("&Übung speichern"), this);
+    saveDesignerAction = new QAction(QIcon("../SpeedCurveLearner/Icons/save.png"), tr("&Übung speichern"), this);
 	saveDesignerAction->setStatusTip(tr("&Übung speichern"));
 }
 
@@ -187,8 +187,8 @@ void MainWindow::readSettings()
 	QSettings settings;
 
 	settings.beginGroup("MainWindow");
-	resize(settings.value("size", QSize(400, 400)).toSize());
-	move(settings.value("pos", QPoint(200, 200)).toPoint());
+    /*resize(settings.value("size", QSize(400, 400)).toSize());
+    move(settings.value("pos", QPoint(200, 200)).toPoint());*/
 	settings.endGroup();
 
 	int volume = 0;
@@ -280,12 +280,12 @@ void MainWindow::exerciseLoop()
 
 	if(looped)
 	{
-		loopAction->setIcon(QIcon("../miditest/Icons/loop_deactivated.png"));
+        loopAction->setIcon(QIcon("../SpeedCurveLearner/Icons/loop_deactivated.png"));
 		looped = false;
 	}
 	else
 	{
-		loopAction->setIcon(QIcon("../miditest/Icons/loop.png"));
+        loopAction->setIcon(QIcon("../SpeedCurveLearner/Icons/loop.png"));
 		looped = true;
 	}
 }

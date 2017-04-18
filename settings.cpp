@@ -1,15 +1,5 @@
 #include "settings.h"
 
-void Settings::accept()
-{
-
-}
-
-void Settings::reject()
-{
-
-}
-
 Settings::Settings(QStringList ports, QWidget *parent) :
     QDialog(parent)
 {
@@ -25,10 +15,13 @@ Settings::Settings(QStringList ports, QWidget *parent) :
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
-    QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->addWidget(cbChannel);
-    mainLayout->addWidget(buttonBox);
-    setLayout(mainLayout);
+    QHBoxLayout *hBoxLayout = new QHBoxLayout;
+    QVBoxLayout *vBoxLayout = new QVBoxLayout;
+    hBoxLayout->addWidget(lbChannel);
+    hBoxLayout->addWidget(cbChannel);
+    vBoxLayout->addLayout(hBoxLayout);
+    vBoxLayout->addWidget(buttonBox);
+    setLayout(vBoxLayout);
     setWindowTitle(tr("Einstellungen"));
 }
 

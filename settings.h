@@ -11,10 +11,6 @@ class Settings : public QDialog
 {
     Q_OBJECT
 
-private slots:
-    void accept();
-    void reject();
-
 public:
     explicit Settings(QStringList ports, QWidget *parent = 0);
     ~Settings();
