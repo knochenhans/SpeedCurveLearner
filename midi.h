@@ -21,6 +21,8 @@ public:
 	Midi(QThread *parent = 0);
 	~Midi();
 
+    QStringList getPorts();
+
 public slots:
 	void play(Exercise pExercise, quint16 pSpeed);
 	void pause();
@@ -51,6 +53,8 @@ private:
 	Exercise currentExercise;
 
 	std::vector<unsigned char> getModeMessage(unsigned int MSG_MODE);
+
+    QStringList ports;
 };
 
 #endif // MIDITHREAD_H

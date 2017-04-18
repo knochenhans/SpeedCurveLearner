@@ -11,6 +11,7 @@
 #include "midi.h"
 #include "RtMidi.h"
 #include "about.h"
+#include "settings.h"
 #include "exercise.h"
 #include "exercisepage.h"
 #include "designerpage.h"
@@ -37,6 +38,7 @@ private slots:
 	void designerSave();
 
 	void about();
+    void settings();
 
 	void exercisePageClicked();
 	void designerPageClicked();

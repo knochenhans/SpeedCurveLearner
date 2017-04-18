@@ -18,7 +18,12 @@ Midi::~Midi()
 
 	wait();
 
-	deinitialize();
+    deinitialize();
+}
+
+QStringList Midi::getPorts()
+{
+    return ports;
 }
 
 void Midi::run()
@@ -144,13 +149,20 @@ bool Midi::initialize()
 
 	// Check available ports.
 	unsigned int nPorts = midiout->getPortCount();
+
 	if ( nPorts == 0 ) {
 		qDebug() << "No ports available!";
-		return false;
-	}
+
+        return false;
+
+    } else {
+        for (unsigned int i = 0; i < nPorts; i++) {
+            ports << QString::fromStdString(midiout->getPortName(i));
+        }
+    }
 
 	// Open first available port.
-    midiout->openPort(1);
+    midiout->openPort(0);
 
 	// Lautstärke
 

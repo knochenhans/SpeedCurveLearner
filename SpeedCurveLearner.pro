@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     tabbertablemodel.cpp \
     speedcurvedisplay.cpp \
     xmlserialization.cpp \
-    collection.cpp
+    collection.cpp \
+    settings.cpp
 
 HEADERS  += mainwindow.h \
     RtMidi.h \
@@ -44,7 +45,8 @@ HEADERS  += mainwindow.h \
     tabbertablemodel.h \
     speedcurvedisplay.h \
     xmlserialization.h \
-    collection.h
+    collection.h \
+    settings.h
 
 DEFINES += __LINUX_ALSA__
 

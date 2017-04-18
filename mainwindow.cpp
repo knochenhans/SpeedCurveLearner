@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	createToolbars();
 	createStatusBar();
 
-	readSettings();
+    readSettings();
 
 	looped = false;
 }
@@ -66,7 +66,7 @@ void MainWindow::createActions()
 
 	settingsAction = new QAction(QIcon("../miditest/Icons/preferences.png"), tr("&Einstellungen"), this);
 	settingsAction->setStatusTip(tr("Einstellungen des Programms."));
-	//connect(settingsAction, SIGNAL(triggered()), this, SLOT(settings()));
+    connect(settingsAction, SIGNAL(triggered()), this, SLOT(settings()));
 
 	aboutAction = new QAction(tr("&Über %1 …").arg(QCoreApplication::applicationName()), this);
 	aboutAction->setStatusTip(tr("Informationen über %1.").arg(QCoreApplication::applicationName()));
@@ -213,7 +213,13 @@ MainWindow::~MainWindow()
 void MainWindow::about()
 {
 	About aboutDialog(this);
-	aboutDialog.exec();
+    aboutDialog.exec();
+}
+
+void MainWindow::settings()
+{
+    Settings settingsDialog(midiThread->getPorts(), this);
+    settingsDialog.exec();
 }
 
 void MainWindow::finishedPlaying()
